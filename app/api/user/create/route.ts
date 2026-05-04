@@ -2,13 +2,13 @@ import { NextResponse, NextRequest } from "next/server";
 import { query } from "../../service/pool";
 
 export async function POST(req: NextRequest) {
-
+    // for error handling...
     try {
-
+        // if body are not available in request...
         if (!req.body) {
             return NextResponse.json({ message: "No data provided" }, { status: 400 });
         }
-
+        // just handle POST only...
         if (req.method == "POST") {
             const body = await req.json();
             const { name, email, password } = body;
